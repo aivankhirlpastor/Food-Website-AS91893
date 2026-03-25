@@ -1,0 +1,8 @@
+:root {
+    --my-property: "value"; /* initial */
+}
+
+/* media queries for device extent less than 480px */
+@media only screen and (max-width: 480px) {
+    
+}
