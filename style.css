@@ -16,6 +16,11 @@
     --font-body: "Montserrat", Arial, Helvetica, sans-serif;
 }
 
+/* html tag */
+html {
+    font-size: 1.125rem; /* from 16px multiplied by 1.125 is 18px */
+}
+
 /* media queries for device extent less than 480px */
 @media only screen and (max-width: 480px) {
     
