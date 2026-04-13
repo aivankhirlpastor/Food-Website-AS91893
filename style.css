@@ -16,9 +16,81 @@
     --font-body: "Montserrat", Arial, Helvetica, sans-serif;
 }
 
+* {
+    font-family: var(--font-body);
+}
+
 /* html tag */
 html {
     font-size: 1.125rem; /* from 16px multiplied by 1.125 is 18px */
+}
+
+/* body tag */
+body {
+    margin: 0; /* removing out the default margin of the <body> */
+}
+
+/* button tag */
+button {
+    border: none;
+    outline: none;
+}
+
+header {
+    --header-title-extent: 1.35em;
+    --header-pad-inline: 2em;
+
+    align-items: center;
+    /* background-color: #d3d3d3; */
+    display: flex;
+    justify-content: space-between;
+    padding: 0.3em var(--header-pad-inline);
+    position: fixed;
+    width: calc(100% - (var(--header-pad-inline) * 2));
+
+    h1 {
+        color: var(--color-2);
+        font-size: var(--header-title-extent);
+        font-weight: 800;
+    }
+}
+
+header nav.navigational-links {
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    ul li {
+        display: inline-block;
+        padding: 0.5em;
+        margin: 0.5em;
+    }
+
+    /* nav links */
+    ul li > a {
+        text-decoration: none; /* removing out bullets */
+    }
+
+    /* unhovered state styling */
+    ul li > a:not(:hover) {
+        color: #000000;
+    }
+
+    /* hoevered state styling */
+    ul li > a:hover {
+        color: var(--color-2);
+    }
+}
+
+header button#search {
+    --srch-btn-extent: 2.25em;
+
+    background-color: #000000;
+    border-radius: 0.4em;
+    height: var(--srch-btn-extent);
+    width: var(--srch-btn-extent);
 }
 
 /* media queries for device extent less than 480px */
