@@ -9,6 +9,11 @@
     --color-3: #6A994E;
     --color-4: #F7E7CE;
     --color-5: #000000;
+
+    /* font property */
+    --font-heading: "Capriola", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    --font-subheading: "Montserrat",'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    --font-body: "Montserrat", Arial, Helvetica, sans-serif;
 }
 
 /* media queries for device extent less than 480px */
