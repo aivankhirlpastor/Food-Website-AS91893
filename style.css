@@ -25,6 +25,8 @@
     --main-element-top-space: calc((var(--header-pad-block) * 2) + var(--header-height));
     --main-whitespace-inline: var(--header-pad-inline);
 
+    /* first top segment (.on-high-division) of the page */
+    --top-section-padding: 2.5em;
 }
 
 * {
@@ -61,6 +63,15 @@ img.fixed-asp {
     height: 100%;
 }
 
+/* all sections except the on-high-division, which is found at the first top of the page */
+section.on-high-division {
+    padding-inline: var(--top-section-padding); /* stylised using padding instead of margin */
+}
+
+section:not(.on-high-division) {
+    margin-inline: var(--top-section-padding); /* this element is stylised using margin instead of padding to give extra whitespace from .on-high-division's padding inline. */
+}
+
 /* button tag */
 button {
     --internal-btn-bg: #FFFFFF;
@@ -86,7 +97,7 @@ button.high-point-btn {
 
     color: #FFFFFF;
 }
- 
+
 .flex {
     display: flex;
 }
@@ -154,7 +165,7 @@ section.hero-segment {
 
     background-color: var(--color-1);
     border-radius: 2em;
-    padding: var(--hero-padding-top) 2em;
+    padding-block: var(--hero-padding-top);
     justify-content: space-between;
 
     /*  */
