@@ -46,11 +46,52 @@ main {
     padding: var(--main-element-top-space) var(--main-whitespace-inline) 0;
 }
 
+/* headings */
+h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+}
+
+/* image with fixed assets */
+img.fixed-asp {
+    object-fit: cover;
+    object-position: center;
+
+    width: 100%;
+    height: 100%;
+}
+
 /* button tag */
 button {
-    border: none;
+    --internal-btn-bg: #FFFFFF;
+    --internal-btn-border-bg: #000000; 
+
+    background-color: var(--internal-btn-bg);
+    border: solid 3px var(--internal-btn-border-bg);
+    border-radius: 2em;
+    
+    font-size: 1em;
+    padding: 0.25em 0.8em;
+
     outline: none;
+
+    &:hover {
+        cursor: pointer;
+    }
 }
+
+button.high-point-btn {
+    --internal-btn-bg: var(--color-2);
+    --internal-btn-border-bg: var(--color-2);
+
+    color: #FFFFFF;
+}
+ 
+.flex {
+    display: flex;
+}
+
+/* ---------------------------------------------------------------- */
 
 header {
     align-items: center;
@@ -105,6 +146,42 @@ header button#search {
     border-radius: 0.4em;
     height: var(--srch-btn-extent);
     width: var(--srch-btn-extent);
+}
+
+/* Hero Section Styling from the home page */
+section.hero-segment {
+    --hero-padding-top: 2em;
+
+    background-color: var(--color-1);
+    border-radius: 2em;
+    padding: var(--hero-padding-top) 2em;
+    justify-content: space-between;
+
+    /*  */
+    .context {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        /* padding-bottom: calc(var(--hero-padding-top) * 1.5); */
+    }
+
+    .context .text-information h2 {
+        font-size: 2.2em;
+    }
+
+    .context .call-to-action-btn {
+        display: inline-flex;
+        gap: 1em;
+        padding-block: 3em 1.6em;
+    }
+
+    .image-illustration {
+        & > img {
+            border-radius: 1em;
+            width: 17em;
+            height: 17em;
+        }
+    }
 }
 
 /* media queries for device extent less than 480px */
