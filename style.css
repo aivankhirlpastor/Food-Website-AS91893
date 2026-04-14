@@ -49,8 +49,11 @@ main {
 }
 
 /* headings */
+h2 {
+    font-family: var(--font-heading); /* exclusive typeface for h2 */
+}
+
 h2, h3, h4, h5, h6 {
-    font-family: var(--font-heading);
     font-weight: 700;
 }
 
@@ -82,7 +85,7 @@ button {
     border-radius: 2em;
     
     font-size: 1em;
-    padding: 0.25em 0.8em;
+    padding: 0.3em 1.5em;
 
     outline: none;
 
@@ -100,6 +103,10 @@ button.high-point-btn {
 
 .flex {
     display: flex;
+}
+
+.grid {
+    display: grid;
 }
 
 /* ---------------------------------------------------------------- */
@@ -192,6 +199,65 @@ section.hero-segment {
             width: 17em;
             height: 17em;
         }
+    }
+}
+
+/*  */
+section.top-food-segment .top-food-categories {
+    font-size: clamp(0.5em, 1.5vw, 1em); /* font is based scaled for all phone dimensions until 480px */
+    justify-content: space-between;
+    margin-block: 3em;
+    row-gap: 3vw;
+    grid-template: repeat(2, auto) / repeat(3, 24vw); /* vw allows to fit in all text on all window dimensions */
+
+    /* classically styled card of the food */
+    .food-card {
+        --food-card-br-radius: 2em;
+        --food-card-padding: 1.3em;
+
+        border-radius: var(--food-card-br-radius);
+        box-shadow: 0 6px 10px #00000099;
+        /* height: auto; */
+        padding: var(--food-card-padding);
+    }
+
+    .food-card > img {
+        /* this formula is useful for the rest of the containers
+           that might needing attention to border-radius inside the parent
+           with border-radius as well, to give the consistent scale of the parent.  */
+        border-radius: calc(var(--food-card-br-radius) - var(--food-card-padding));
+        height: 12em;
+        width: 100%;
+
+        /* dummy filter effect */
+        &.empty-img {
+            filter: sepia(30%);
+        }
+    }
+
+    .food-card > span.list-rating {
+        display: block; /* make the element control on margin property */
+        letter-spacing: 0.5em;
+        margin-top: 1em;
+        opacity: 80%;
+    }
+
+    /* -- The Text Description Of A Food */
+    .food-card > .food-text-account {
+        h3 {
+            font-size: 1.4em;
+            margin-block: 0.5em 0.2em;
+        }
+
+        p {
+            margin-block: 0 0.7em;
+            opacity: 80%;
+        }
+    }
+
+    /* -- Button -- */
+    .food-card > button {
+        margin-top: 0.7em; /* give extra whitespace up on the button */
     }
 }
 
