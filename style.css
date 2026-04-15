@@ -202,7 +202,7 @@ section.hero-segment {
     }
 }
 
-/*  */
+/* TOP FOOD FAVOURITES THIS MORNING */
 section.top-food-segment .top-food-categories {
     font-size: clamp(0.5em, 1.5vw, 1em); /* font is based scaled for all phone dimensions until 480px */
     justify-content: space-between;
@@ -258,6 +258,58 @@ section.top-food-segment .top-food-categories {
     /* -- Button -- */
     .food-card > button {
         margin-top: 0.7em; /* give extra whitespace up on the button */
+    }
+}
+
+/* OUR SERVICE */
+section#services {
+
+}
+
+/* grid styling segment */
+section#services .work-aesthetic {
+    align-items: center;
+    justify-items: center;
+    grid-template-columns: 1fr auto 1fr;
+
+    .state-service {
+        width: 24vw;
+    }
+    
+    .state-service .job-phrase {
+        margin-block: 3em;
+        max-height: 8em;
+        overflow: hidden;
+        
+        > h3 {
+            margin: 0;
+        }
+        
+        > p {
+            margin-block: 0.5em;
+        }
+    }
+}
+
+/* image in grid */
+section#services .work-aesthetic .two-images {
+    padding: 1em;
+    grid-template: repeat(11, 2em) / repeat(8, 2em); /* grid layer innovation concept */
+
+    > img {
+        border-radius: 2em;
+        width: 12em;
+        height: auto;
+
+        /* behind */
+        &.image-1 {
+            grid-area: 1 / 1 / span 6 / span 6;
+        }
+
+        /* front */
+        &.image-2 {
+            grid-area: 6 / 3 / span 6 / span 6;
+        }
     }
 }
 
