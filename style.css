@@ -109,6 +109,12 @@ button.high-point-btn {
     display: grid;
 }
 
+.text-title {
+    &.centre {
+        text-align: center;
+    }
+}
+
 /* ---------------------------------------------------------------- */
 
 header {
@@ -262,9 +268,9 @@ section.top-food-segment .top-food-categories {
 }
 
 /* OUR SERVICE */
-section#services {
+/* section#services {
 
-}
+} */
 
 /* grid styling segment */
 section#services .work-aesthetic {
