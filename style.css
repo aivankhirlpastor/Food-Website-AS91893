@@ -5,7 +5,7 @@
 
     /* color palette FOR breakfast food website */
     --color-1: #FFCC00;
-    --color-2: #FF5733;
+    --color-2: #c02300;
     --color-3: #6A994E;
     --color-4: #F7E7CE;
     --color-5: #000000;
@@ -388,7 +388,7 @@ section.bottom-layer {
 }
 
 section.bottom-layer .primary-container {
-    background-color: #6A994E;
+    background-color: var(--color-4);
     padding: 2em;
 
     > .text-title h2 {
