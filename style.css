@@ -5,10 +5,12 @@
 
     /* color palette FOR breakfast food website */
     --color-1: #FFCC00;
-    --color-2: #c02300;
+    --color-2: #FF5733;
     --color-3: #6A994E;
     --color-4: #F7E7CE;
     --color-5: #000000;
+
+    --hover-main-color: #C02300;
 
     /* font property */
     --font-body: "Montserrat", Arial, Helvetica, sans-serif;
@@ -27,6 +29,13 @@
 
     /* first top segment (.on-high-division) of the page */
     --top-section-padding: 2.5em;
+
+    /* footer property */
+    --footer-bg: #251E00;
+    --footer-txt-color: #FFFFFF;
+
+    --footer-link-idle-color: #beaa9b;
+    --footer-link-hover-color: #ffffff;
 }
 
 * {
@@ -95,14 +104,18 @@ button {
 }
 
 button.high-point-btn {
-    --internal-btn-bg: var(--color-2);
-    --internal-btn-border-bg: var(--color-2);
+    --internal-btn-bg: var(--hover-main-color);
+    --internal-btn-border-bg: var(--hover-main-color);
 
     color: #FFFFFF;
 }
 
 .flex {
     display: flex;
+}
+
+.fully-rounded {
+    border-radius: 30em;
 }
 
 .grid {
@@ -423,7 +436,79 @@ section.bottom-layer#newsletter-signup {
             padding: 0.3em 0.5em;
         }
     }
+}
 
+/* FOOTER */
+
+footer {
+    background-color: var(--footer-bg);
+    color: var(--footer-txt-color);
+    padding: 1em 2em;
+
+    h3 {
+        font-weight: 800;
+        margin: 0;
+    }
+}
+
+footer section {
+    justify-content: space-between;
+    align-items: start;
+
+    /* basic child properties inside section */
+
+    > ul {
+        display: flex;
+        gap: 2em;
+        list-style: none;
+        /* detach a default spacing into zero-spacing for ul */
+        margin: 0;
+        padding: 0;
+    }
+
+    > ul li {
+        color: var(--footer-link-idle-color);
+
+        &:has(*:hover) {
+            color: var(--footer-link-hover-color);
+        }
+
+        &#contact p {
+            margin-block: 0;
+        }
+    }
+}
+
+/* ------ */
+
+footer section.footer-top.flex {
+    margin-block: 1.6em;
+}
+
+footer section.footer-bottom.flex {
+    margin-block: 3em 1em;
+
+    p {
+        margin: 0;
+    }
+    
+    ul.social-media-link li a {
+        display: block; /* keeps off the icon from slightly misaligned (slight shift upward from centre) */
+        opacity: 60%;
+        background-color: #705900;
+        padding: 0.3em;
+
+        > img.svg {
+            display: block; /* keeps off the icon from slightly misaligned (slight shift upward from centre) */
+            filter: invert(1); /* color inversion of an icon */
+            width: 1.2em;
+        }
+
+        &:hover {
+            background-color: #a08206;
+            opacity: 100%;
+        }
+    }
 }
 
 /* media queries for device extent less than 480px */
