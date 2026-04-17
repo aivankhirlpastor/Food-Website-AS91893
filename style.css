@@ -139,6 +139,7 @@ header {
     padding: var(--header-pad-block) var(--header-pad-inline);
     position: fixed;
     width: calc(100% - (var(--header-pad-inline) * 2));
+    z-index: 9999; /* always in front */
 
     h1 {
         color: var(--color-2);
@@ -250,7 +251,7 @@ section.top-food-segment .top-food-categories {
 
         border-radius: var(--food-card-br-radius);
         box-shadow: 0 6px 10px #00000099;
-        /* height: auto; */
+        height: fit-content;
         padding: var(--food-card-padding);
     }
 
