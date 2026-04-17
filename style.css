@@ -210,14 +210,30 @@ section.hero-segment {
         display: inline-flex;
         gap: 1em;
         padding-block: 3em 1.6em;
+        z-index: 1;
     }
 
     .image-illustration {
+        z-index: 30;
+
         & > img {
             border-radius: 1em;
             width: 17em;
             height: 17em;
         }
+    }
+
+    /* svg positioning */
+    #surge-curve-layer-1 {
+        fill: #ffffff;
+        position: absolute;
+        left: var(--header-pad-inline);
+        right: 0;
+        /* top: 19.6em; */
+        bottom: 0;
+        z-index: 0;
+        /* best fit of width within the box */
+        width: calc(100% - (var(--header-pad-inline) * 2));
     }
 }
 
