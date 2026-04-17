@@ -193,6 +193,7 @@ section.hero-segment {
     border-radius: 2em;
     padding-block: var(--hero-padding-top);
     justify-content: space-between;
+    position: relative; /* keeps the child element in absolute position to be relative in the parent */
 
     /*  */
     .context {
@@ -227,13 +228,10 @@ section.hero-segment {
     #surge-curve-layer-1 {
         fill: #ffffff;
         position: absolute;
-        left: var(--header-pad-inline);
-        right: 0;
-        /* top: 19.6em; */
-        bottom: 0;
+        left: -0.1em;
+        right: -0.1em;
+        bottom: calc(-0.2em - 1.2vw);
         z-index: 0;
-        /* best fit of width within the box */
-        width: calc(100% - (var(--header-pad-inline) * 2));
     }
 }
 
