@@ -642,7 +642,40 @@ footer section.footer-bottom.flex {
     }
 }
 
-/* media queries for device extent less than 480px */
-@media only screen and (max-width: 480px) {
-    
+/* media queries for device extent less than 780px */
+@media only screen and (max-width: 780px) {
+    /* HEADER */
+    header nav {
+        display: none;
+    }
+
+    /* HERO SECTION */
+    section.hero-segment {
+        flex-direction: column; /* in direction for contents from up to down: column */
+
+        /* IMAGE */
+        .image-illustration {
+            display: flex;
+            justify-content: center;
+            padding: 0;
+
+            /* based on window's width viewpoint */
+            & > img {
+                width: 65vw;
+                height: 35vw;
+            }
+
+        }
+    }
+
+    /* TOP FOOD FAVOURITES THIS MORNING */
+    section.top-food-segment .top-food-categories {
+        font-size: clamp(0.5em, 2.4vw, 1em); /* font is based scaled for all phone dimensions until 480px */
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2vw;
+
+        .food-card {
+            height: auto;
+        }
+    }
 }
