@@ -17,6 +17,23 @@
     --font-heading: "Capriola", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     --font-subheading: "Montserrat",'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 
+    /* button idle state property */
+    --btn-text-idle-color: #000000;
+    --btn-text-emphasis-color: #FFFFFF;
+
+    --emphasis-btn-bg: #C02300;
+    --emphasis-btn-border-bg: var(--emphasis-btn-bg);
+    --main-btn-bg: #FFFFFF;
+    --main-btn-border-bg: #000000;
+
+    /* button hover state property */
+    --btn-text-hover-emphasis-color: #000000;
+
+    --emphasis-hover-btn-bg: #ffcc00;
+    --emphasis-hover-border-bg: #ab8800;
+    --main-hover-btn-bg: #fff6ca;
+    --main-hover-border-bg: #614e00;
+    
     /* header property */
     --header-height: 3.8em;
     --header-pad-block: 0.3em;
@@ -86,28 +103,41 @@ section:not(.on-high-division) {
 
 /* button tag */
 button {
-    --internal-btn-bg: #FFFFFF;
-    --internal-btn-border-bg: #000000; 
+    --btn-transition-property: 0.2s ease ;
 
-    background-color: var(--internal-btn-bg);
-    border: solid 3px var(--internal-btn-border-bg);
+    background-color: var(--main-btn-bg);
+    border: solid 3px var(--main-btn-border-bg);
     border-radius: 2em;
-    
+    box-shadow: none;
+    color: var(--btn-text-color); /* prevents other browsers showing different colours for idle state */    
     font-size: 1em;
     padding: 0.3em 1.5em;
 
     outline: none;
 
+    transition: background-color var(--btn-transition-property),
+                border-color var(--btn-transition-property),
+                box-shadow var(--btn-transition-property),
+                color var(--btn-transition-property);
+
     &:hover {
         cursor: pointer;
+        background-color: var(--main-hover-btn-bg);
+        border-color: var(--main-hover-border-bg);
+        
+        &.high-point-btn {
+            background-color: var(--emphasis-hover-btn-bg);
+            border-color: var(--emphasis-hover-border-bg);
+            box-shadow: 0px 0px 1em var(--color-1);
+            color: var(--btn-text-hover-emphasis-color, #FFFFFF);
+        }
     }
 }
 
 button.high-point-btn {
-    --internal-btn-bg: var(--hover-main-color);
-    --internal-btn-border-bg: var(--hover-main-color);
-
-    color: #FFFFFF;
+    background-color: var(--emphasis-btn-bg);
+    border-color: var(--emphasis-btn-border-bg);
+    color: var(--btn-text-emphasis-color);
 }
 
 .flex {
@@ -310,9 +340,20 @@ section#services .work-aesthetic {
     
     .job-phrase {
         margin-block: 3em;
-        max-height: 8em;
+        max-height: 10em;
         overflow: hidden; /* cuts down lengthy paragraphs */
         width: 24vw;
+
+        > svg {
+            fill: #ff5500;
+            /* padding: 0.2em; */
+            stroke: var(--color-1);
+            width: 3em;
+            height: auto;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
         
         > h3 {
             margin: 0;
