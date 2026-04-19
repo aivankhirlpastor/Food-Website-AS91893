@@ -194,6 +194,7 @@ section.hero-segment {
     border-radius: 2em;
     padding-block: var(--hero-padding-top);
     justify-content: space-between;
+    overflow: hidden;
     position: relative; /* keeps the child element in absolute position to be relative in the parent */
 
     /*  */
@@ -231,7 +232,7 @@ section.hero-segment {
         position: absolute;
         left: -0.1em;
         right: -0.1em;
-        bottom: calc(-0.2em - 1.2vw);
+        bottom: -0.2em;
         z-index: 0;
     }
 }
@@ -547,6 +548,13 @@ footer section.footer-bottom.flex {
     }
 }
 
+@media only screen and (min-width: 1160px) {
+    /* svg bottom positioning adjustment */
+    section.hero-segment #surge-curve-layer-1 {
+        bottom: -16%;
+    }
+}
+
 /* media queries for device extent less than 920px */
 @media only screen and (max-width: 920px) {
     /* Hero Section */
@@ -568,6 +576,11 @@ footer section.footer-bottom.flex {
                 width: 15em;
                 height: 12em;
             }
+        }
+
+        /* svg width adjustment */
+        #surge-curve-layer-1 {
+            width: 110%;
         }
     }
 
@@ -664,7 +677,11 @@ footer section.footer-bottom.flex {
                 width: 65vw;
                 height: 35vw;
             }
+        }
 
+        /* svg width adjustment */
+        #surge-curve-layer-1 {
+            width: 250%;
         }
     }
 
@@ -675,7 +692,23 @@ footer section.footer-bottom.flex {
         gap: 2vw;
 
         .food-card {
-            height: auto;
+            height: auto; /* similar height of all cards in each row */
+        }
+    }
+
+    /* BOTTOM FINAL */
+    section.bottom-layer#newsletter-signup {
+        display: block;
+
+        /* email form: subscribe */
+        .primary-container form {
+            flex-direction: column;
+            gap: 1em;
+            align-items: start;
+
+            section.form-block {
+                width: 100%;
+            }
         }
     }
 }
