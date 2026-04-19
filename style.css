@@ -239,7 +239,7 @@ section.hero-segment {
 
 /* TOP FOOD FAVOURITES THIS MORNING */
 section.top-food-segment .top-food-categories {
-    font-size: clamp(0.5em, 1.5vw, 1em); /* font is based scaled for all phone dimensions until 480px */
+    font-size: clamp(0.5em, 1.5vw, 1em); /* font is based scaled for all phone dimensions until 640px */
     justify-content: space-between;
     margin-block: 3em;
     row-gap: 3vw;
@@ -410,8 +410,9 @@ section#innovation-experience {
 section#innovation-experience .the-boards {
     /* again, using the grid display gives attractive aesthetics,
        yet stylised in simpler way for the moment */
-    gap: 0.9vw;
-    grid-template: repeat(6, 7vw) / repeat(10, 7vw);
+    gap: 1vw;
+    grid-template: repeat(6, 7vw) / repeat(10, auto);
+    width: 100%;
 
     > img {
         border-radius: 1vw;
@@ -520,6 +521,10 @@ footer section {
 
 footer section.footer-top.flex {
     margin-block: 1.6em;
+
+    > ul li#contact {
+        color: var(--color-4);
+    }
 }
 
 footer section.footer-bottom.flex {
@@ -565,6 +570,7 @@ footer section.footer-bottom.flex {
 
         .context .call-to-action-btn {
             padding-block: 1.6em; /* reduced padding start */
+            display: inline;
         }
 
 
@@ -696,7 +702,7 @@ footer section.footer-bottom.flex {
         }
     }
 
-    /* BOTTOM FINAL */
+    /* BOTTOM LAYER */
     section.bottom-layer#newsletter-signup {
         display: block;
 
@@ -709,6 +715,81 @@ footer section.footer-bottom.flex {
             section.form-block {
                 width: 100%;
             }
+        }
+    }
+
+    /* FOOTER */
+    footer section.footer-top.flex {
+
+        /* footer links */
+        > ul {
+            display: block;
+        }
+
+        > ul li {
+            margin-block: 5vw;
+            text-align: left;
+        }
+    }
+
+    footer section.footer-bottom.flex {
+        flex-direction: column-reverse; /* the social media icon goes on the very top. */
+        gap: 1em;
+    }
+}
+
+@media only screen and (max-width: 640px) {
+    :root {
+        /* header property */
+        --header-pad-inline: 5%;
+    }
+
+    /* all sections except the on-high-division, which is found at the first top of the page */
+    section:not(.on-high-division) {
+        margin-inline: auto;
+    }
+
+    /* TOP FOOD FAVOURITES */
+    section.top-food-segment .top-food-categories {
+        font-size: 1em;
+        grid-template: none / 100%;
+
+        .food-card > button {
+            width: 100%;
+        }
+    }
+
+    /* OUR SERVICE */
+    section#services .work-aesthetic {
+        /* font-size: 4vw; */
+        display: block; /* stacked in each other */
+        
+        .job-phrase {
+            margin-block: 5vw;
+            width: auto; /* full view of the job-phrase illustration board */
+        }
+    }
+
+    section#services .work-aesthetic .two-images {
+        font-size: 4vw; /* self-adjustment linked to window's with viwepoint */
+    }
+
+    /* BOARD INNOVATION */
+    section#innovation-experience .the-boards {
+        gap: 3vw;
+        grid-template: repeat(3, 50vw) / repeat(2, 1fr);
+
+        > img.img-1 {
+            grid-area: 1 / 1 / span 1 / span 2;
+        }
+        > img.img-2 {
+            grid-area: 2 / 1 / span 1 / span 1;
+        }
+        > img.img-3 {
+            grid-area: 2 / 2 / span 1 / span 1;
+        }
+        > img.img-4 {
+            grid-area: 3 / 1 / span 1 / span 2;
         }
     }
 }
