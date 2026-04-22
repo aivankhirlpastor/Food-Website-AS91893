@@ -75,7 +75,7 @@ main {
 }
 
 /* headings */
-h2 {
+h1, h2 {
     font-family: var(--font-heading); /* exclusive typeface for h2 */
 }
 
@@ -174,6 +174,7 @@ header {
     h1 {
         color: var(--color-2);
         font-size: var(--header-title-extent);
+        font-family: var(--font-body); /* exclusive typeface for h2 */
         font-weight: 800;
     }
 }
@@ -216,16 +217,26 @@ header button#search {
     width: var(--srch-btn-extent);
 }
 
-/* Hero Section Styling from the home page */
-section.hero-segment {
-    --hero-padding-top: 2em;
+/* Hero Section Styling + Segment Page Overview */
+section.on-high-division {
+    --high-sct-pad-block: 2em;
 
     background-color: var(--color-1);
     border-radius: 2em;
+    justify-content: center;
+    padding-block: var(--high-sct-pad-block);
+    text-align: center;
+}
+
+/* Hero Section Styling from the home page */
+section.on-high-division#hero {
+    --hero-padding-top: 2em;
+
     padding-block: var(--hero-padding-top);
     justify-content: space-between;
     overflow: hidden;
     position: relative; /* keeps the child element in absolute position to be relative in the parent */
+    text-align: initial;
 
     /*  */
     .context {
@@ -267,13 +278,15 @@ section.hero-segment {
     }
 }
 
-/* TOP FOOD FAVOURITES THIS MORNING */
-section.top-food-segment .top-food-categories {
+/* TOP FOOD FAVOURITES THIS MORNING + CUISINE FOOD CATEGORIES w/ SWIPER */
+section.top-food-segment .top-food-categories,
+section.food-cuisine .swiper .cuisine-food-categories {
     font-size: clamp(0.5em, 1.5vw, 1em); /* font is based scaled for all phone dimensions until 640px */
+    grid-template: repeat(2, auto) / repeat(3, 24vw); /* vw allows to fit in all text on all window dimensions for grid */
     justify-content: space-between;
     margin-block: 3em;
     row-gap: 3vw;
-    grid-template: repeat(2, auto) / repeat(3, 24vw); /* vw allows to fit in all text on all window dimensions */
+    width: 100%;
 
     /* classically styled card of the food */
     .food-card {
@@ -283,7 +296,10 @@ section.top-food-segment .top-food-categories {
         border-radius: var(--food-card-br-radius);
         box-shadow: 0 6px 10px #00000099;
         height: fit-content;
+        
         padding: var(--food-card-padding);
+        /* &:not(.swiper-slide) {            
+        } */
     }
 
     .food-card > img {
