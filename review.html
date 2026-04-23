@@ -23,7 +23,143 @@
     </header>
     <!-- main section -->
     <main>
+        <section class="on-high-division page-overview" id="review-intro">
+            <h1>REVIEW</h1>
+            <p>1234</p>
+        </section>
 
+        <section id="top-food-recommendation">
+            <h2>TOP FOOD RECOMMENDATION</h2>
+
+            <!-- TOP RECOMMENDED BOX -->
+            <div class="recommended-box grid">
+                <!-- Section 1: Image -->
+                <img src="./image/empty-container.jpg" alt="Food pack" class="large-img fixed-asp">
+                <!-- Section 2: Texts -->
+                <div class="text-description">
+                    <!-- (I) INFO CONTAINER -->
+                    <div id="text-container">
+                        <div class="food-tags">
+                            <span>dummy text</span>
+                            <span>tag 2</span>
+                        </div>
+    
+                        <h3>RECOMMENDED FOOD TITLE</h3>
+                        <span class="list-rating">★★★★★ 5.0</span>
+                    </div>
+
+                    <!-- (II) USER PROFILE -->
+                    <div class="user-profile">
+                        <!-- Cell 1: Italicised text -->
+                        <span class="italicised">Recommended by</span>
+                        <!-- Cell 2: Decorative Username -->
+                        <div class="bar-username">
+                            <img src="./image/empty-container.jpg" alt="Profile Picture" class="profile-picture">
+                            <span class="username">Avid 3140</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Section 3: Compliments -->
+                <div class="compliments">
+                    <!-- Compliment Wrapper -->
+                    <ul id="compliment-container">
+                        <!-- Compliment 1 -->
+                        <li class="card-compliment" id="cpt-1">
+                            <!-- icon: https://www.svgrepo.com/svg/505662/heart -->
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g id="SVGRepo_bgCarrier" stroke-width="2"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <path d="M12 20L4.3314 12.0474C3.47892 11.1633 3 9.96429 3 8.71405C3 6.11055 5.03517 4 7.54569 4C8.75128 4 9.90749 4.49666 10.76 5.38071L12 6.66667L13.24 5.38071C14.0925 4.49666 15.2487 4 16.4543 4C18.9648 4 21 6.11055 21 8.71405C21 9.96429 20.5211 11.1633 19.6686 12.0474L15.8343 16.0237" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </g>
+                            </svg>
+    
+                            <div class="compliment-text">
+                                <h3>Compliment</h3>
+                                <p>Add brief text here...</p>
+                            </div>
+                        </li>
+                        <!-- Compliment 2 -->
+                        <li class="card-compliment" id="cpt-2">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g id="SVGRepo_bgCarrier" stroke-width="2"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <path d="M12 20L4.3314 12.0474C3.47892 11.1633 3 9.96429 3 8.71405C3 6.11055 5.03517 4 7.54569 4C8.75128 4 9.90749 4.49666 10.76 5.38071L12 6.66667L13.24 5.38071C14.0925 4.49666 15.2487 4 16.4543 4C18.9648 4 21 6.11055 21 8.71405C21 9.96429 20.5211 11.1633 19.6686 12.0474L15.8343 16.0237" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </g>
+                            </svg>
+                            <div class="compliment-text">
+                                <h3>Compliment</h3>
+                                <p>Add brief text here...</p>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <button type="button" id="view-appraisals-btn">View More</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Top Breakfast Favourites -->
+        <section class="top-food-segment">
+            <h2>TOP RECOMMENDATION FOR THE MORNING</h2>
+
+            <div class="top-food-categories grid">
+                <!-- [ FOOD CARD ] -->
+                <div class="food-card" id="e-30489">
+                    <!-- Row 1: Food Image -->
+                    <img src="./image/top-food-suggestion/defne-kucukmustafa-7P7jEzRmJIU-unsplash.jpg" alt="Raspberry Pancake" class="fixed-asp">
+
+                    <!-- Row 2: Health or User Rating -->
+                    <span class="list-rating">★★★★★ 5.0</span>
+
+                    <!-- Row 3: Title & Text Description -->
+                    <div class="food-text-account">
+                        <h3>Raspberry Pancake</h3>
+                        <p>A classic whisp of fluff and flavour</p>
+                    </div>
+
+                    <!-- Row 4: Try-It-Out Button -->
+                    <button type="button" class="high-point-btn">View</button>
+                </div>
+                <!-- [ FOOD CARD 2] -->
+                <div class="food-card" id="e-64308">
+                    <!-- Row 1: Food Image -->
+                    <img src="./image/top-food-suggestion/alison-marras-4zm5e0ZgYjE-unsplash.jpg" alt="A toast with egg and lettuce" class="fixed-asp">
+
+                    <!-- Row 2: Health or User Rating -->
+                    <span class="list-rating">★★★★☆ 4.0</span>
+
+                    <!-- Row 3: Title & Text Description -->
+                    <div class="food-text-account">
+                        <h3>Toast w/ Egg & Lettuce</h3>
+                        <p>A beautified toast with tasteful tops</p>
+                    </div>
+
+                    <!-- Row 4: Try-It-Out Button -->
+                    <button type="button" class="high-point-btn">View</button>
+                </div>
+                <!-- [ FOOD CARD 3] -->
+                <div class="food-card" id="e-10031">
+                    <!-- Row 1: Food Image -->
+                    <img src="./image/top-food-suggestion/sunny-nguyen-CZ_4zPis9Jo-unsplash.jpg" alt="An oatmeal with fruits on a wooden surface"
+                        class="fixed-asp empty-img">
+
+                    <!-- Row 2: Health or User Rating -->
+                    <span class="list-rating">★★★★★ 5.0</span>
+
+                    <!-- Row 3: Title & Text Description -->
+                    <div class="food-text-account">
+                        <h3>Oatmeal w/ Fruits</h3>
+                        <p>Perfect for health-conscious desires</p>
+                    </div>
+
+                    <!-- Row 4: Try-It-Out Button -->
+                    <button type="button" class="high-point-btn">View</button>
+                </div>
+            </div>
+
+        </section>
     </main>
     <!-- footer -->
     <footer>
