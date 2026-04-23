@@ -23,8 +23,10 @@
 
     --emphasis-btn-bg: #C02300;
     --emphasis-btn-border-bg: var(--emphasis-btn-bg);
-    --main-btn-bg: #FFFFFF;
-    --main-btn-border-bg: #000000;
+    --main-btn-bg: #CCCCCC;
+    --main-btn-border-bg: #CCCCCC;
+    --outlined-btn-bg: #FFFFFF;
+    --outlined-btn-border-bg: #222222;
 
     /* button hover state property */
     --btn-text-hover-emphasis-color: #000000;
@@ -105,7 +107,7 @@ img.fixed-asp {
 
 /* button tag */
 button {
-    --btn-transition-property: 0.2s ease ;
+    --btn-transition-property: 0.2s ease;
 
     background-color: var(--main-btn-bg);
     border: solid 3px var(--main-btn-border-bg);
@@ -126,20 +128,28 @@ button {
         cursor: pointer;
         background-color: var(--main-hover-btn-bg);
         border-color: var(--main-hover-border-bg);
-        
-        &.high-point-btn {
+    }
+
+    /* varieties of button appearance */
+    
+    &.emphasis-btn {
+        background-color: var(--emphasis-btn-bg);
+        border-color: var(--emphasis-btn-border-bg);
+        color: var(--btn-text-emphasis-color);
+
+        /* hover state */
+        &:hover {
             background-color: var(--emphasis-hover-btn-bg);
             border-color: var(--emphasis-hover-border-bg);
             box-shadow: 0px 0px 1em var(--color-1);
             color: var(--btn-text-hover-emphasis-color, #FFFFFF);
         }
     }
-}
 
-button.high-point-btn {
-    background-color: var(--emphasis-btn-bg);
-    border-color: var(--emphasis-btn-border-bg);
-    color: var(--btn-text-emphasis-color);
+    &.outline-btn {
+        background-color: var(--outlined-btn-bg);
+        border-color: var(--outlined-btn-border-bg);
+    }
 }
 
 .italicised {
@@ -170,6 +180,13 @@ span.list-rating {
     &.centre {
         text-align: center;
     }
+}
+
+/*  */
+.text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 /* Food Text Description */
@@ -567,11 +584,6 @@ section#top-food-recommendation .recommended-box {
     }
 
     /* tags, heading, rating as static text */
-    > .text-container {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
 
     > .text-container .food-text-description h3 {
         font-size: 1.5em;
@@ -681,11 +693,15 @@ section#top-food-recommendation .recommended-box {
 }
 
 /* OTHER REVIEWS */
-section#other-reviews {
-    --property: "value";
+section#other-reviews ul {
+    padding: 0;
 }
 
 section#other-reviews ul li {
+    --bar-bg: #1e4806;
+    --bar-opacity: 50%;
+    --bar-thickness: 2px;
+
     display: flex;
     gap: 2em;
     position: relative;
@@ -693,17 +709,24 @@ section#other-reviews ul li {
 
     > img {
         border-radius: 1em;
-        width: 7em;
-        height: 7em;
+        width: 9em;
+        height: 9em;
     }
 
-    &:after {
+    /* Linear Below The List, excluding the last*/
+    &:not(:last-child):after {
         content: "";
-        position: absolute;
+        background-color: var(--bar-bg);
+        opacity: var(--bar-opacity);
+        height: var(--bar-thickness);
         width: 100%;
+
+        position: absolute;
         top: 115%;
-        height: 4px;
-        background-color: #275f07;
+    }
+
+    .text-container button {
+        width: fit-content;
     }
 }
 
