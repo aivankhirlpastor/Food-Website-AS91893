@@ -126,6 +126,7 @@ button {
 
     &:hover {
         cursor: pointer;
+
         background-color: var(--main-hover-btn-bg);
         border-color: var(--main-hover-border-bg);
     }
@@ -149,6 +150,12 @@ button {
     &.outline-btn {
         background-color: var(--outlined-btn-bg);
         border-color: var(--outlined-btn-border-bg);
+        
+        /* hover state */
+        &:hover {
+            background-color: var(--main-hover-btn-bg);
+            border-color: var(--main-hover-border-bg);
+        }
     }
 }
 
@@ -677,13 +684,14 @@ section#top-food-recommendation .recommended-box {
         }
 
         .compliment-text h3 {
-            margin-block: 0.5em 0;
+            margin-block: 0.3em;
             font-weight: 900;
             font-style: italic;
         }
 
         .compliment-text p {
             margin-block: 0.2em;
+            opacity: 70%;
         }
     }
 
@@ -705,7 +713,7 @@ section#other-reviews ul li {
     display: flex;
     gap: 2em;
     position: relative;
-    margin-block: 5%;
+    margin-block: 3em;
 
     > img {
         border-radius: 1em;
@@ -816,7 +824,7 @@ footer section.footer-bottom.flex {
 }
 
 /* media queries for device extent less than 920px */
-@media only screen and (max-width: 920px) {
+@media only screen and (max-width: 970px) {
     /* Hero Section */
     section.hero-segment {
         .context .text-information h2 {
@@ -901,6 +909,36 @@ footer section.footer-bottom.flex {
         > ul {
             flex-direction: column;
             height: auto;
+        }
+    }
+
+    /* TOP FOOD RECOMMENDATION */
+    section#top-food-recommendation .recommended-box {
+        grid-template: auto 1fr / 1fr 1.5fr;
+        gap: 2em;
+
+        > img {
+            width: 100%;
+            height: 100%;
+            grid-area: 1 / 1 / span 2 / span 1;
+        }
+
+        > .text-container {
+            justify-content: start;
+            gap: 2em;
+        }
+
+        > .text-container .user-profile {
+            display: none;
+        }
+
+        /* compliment elements */
+        > .compliments {
+            display: block;
+        }
+
+        > .compliments ul#compliment-container .card-compliment {
+            width: 300px;
         }
     }
 
