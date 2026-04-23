@@ -349,19 +349,6 @@ section.food-cuisine .swiper .cuisine-food-categories {
         }
     }
 
-    /* -- The Text Description Of A Food */
-    .food-card .food-text-account {
-        h3 {
-            font-size: 1.4em;
-            margin-block: 0.5em 0.2em;
-        }
-
-        p {
-            margin-block: 0 0.7em;
-            opacity: 80%;
-        }
-    }
-
     /* -- Button -- */
     .food-card > button {
         margin-top: 0.7em; /* give extra whitespace up on the button */
