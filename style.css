@@ -1128,6 +1128,33 @@ footer section.footer-bottom.flex {
         }
     }
 
+    /* TOP FOOD RECOMMENDATION */
+
+    section#top-food-recommendation .recommended-box {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        
+        /* an instance of food image */
+        > img {
+            height: 12em;
+        }
+
+        /* Simplified Styling than the Original Style taking up much spaces */
+        
+        > .compliments ul.compliment-container .card-compliment {
+            .compliment-text h3 {
+                font-size: 0.9em;
+                font-weight: 400;
+                font-style: normal;
+            }
+
+            .compliment-text p {
+                display: none;
+            }
+        }
+    }
+
     /* FOOTER */
     footer section.footer-top.flex {
 
