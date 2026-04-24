@@ -326,8 +326,6 @@ span.list-rating {
         width: 1.2rem;
         height: 1.2rem;
     }
-
-    /* black semi-transparent overlay */
 }
 
 /* works only with presence of pop-box-panel */
@@ -346,6 +344,7 @@ span.list-rating {
     }
 }
 
+/* no scrolling while the presence of pop-box-panel */
 body:has(.pop-box-panel) {
     overflow-y: hidden;
 }
@@ -366,13 +365,10 @@ body:has(.pop-box-panel) {
     }
 }
 
+/* text contents */
 .pop-box-panel > .container-wraps .food-text-description :is(h2, h3) {
     text-transform: uppercase; /* ALL UPPERCASE */
 }
-
-/* .pop-box-container:has(.compliments) {
-
-} */
 
 /* ---------------------------------------------------------------- */
 
@@ -946,6 +942,24 @@ footer section.footer-bottom.flex {
 
 /* media queries for device extent less than 920px */
 @media only screen and (max-width: 970px) {
+    /* PANEL */
+    .pop-box-panel {
+        grid-template: 40% 60% / 1fr;
+        gap: 0.5em;
+        top: 5vh;
+        bottom: 5vh;
+    }
+    
+    .pop-box-panel > .container-wraps {
+        overflow-x: hidden;
+        overflow-y: scroll;
+    }
+
+    /* fixed height */
+    /* .pop-box-panel > .container-wraps .food-text-description {
+        height: 17em;
+    } */
+
     /* Hero Section */
     section.hero-segment {
         .context .text-information h2 {
@@ -1021,7 +1035,6 @@ footer section.footer-bottom.flex {
             grid-area: 3 / 6 / span 6 / span 6;
         }
     }
-
 
     /* BENEFITS */
     section#the-benefits {
@@ -1179,6 +1192,11 @@ footer section.footer-bottom.flex {
     :root {
         /* header property */
         --header-pad-inline: 5%;
+    }
+
+    /* Unordered List of Compliments */
+    .compliment-container {
+        display: block;
     }
 
     /* all sections except the on-high-division, which is found at the first top of the page */
