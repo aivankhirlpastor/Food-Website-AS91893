@@ -157,6 +157,15 @@ button {
             border-color: var(--main-hover-border-bg);
         }
     }
+
+    &.no-appearance-btn {
+        background-color: transparent;
+        border-color: transparent;
+
+        &:hover {
+            background-color: #0000004d;
+        }
+    }
 }
 
 .italicised {
@@ -189,6 +198,8 @@ span.list-rating {
     }
 }
 
+/* COMMONLY OBSERVED ELEMENTS */
+
 /*  */
 .text-container {
     display: flex;
@@ -196,22 +207,172 @@ span.list-rating {
     justify-content: space-between;
 }
 
+/* Compliment Decor */
+.compliments {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Unordered Lists of Compliments / Non-Ul Tag Styling */
+.compliment-container {
+    border: 0.1em solid #68190765; /* thick bars on top and bottom side */
+    border-left: none;
+    border-right: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    list-style: none;
+    margin-block: 0.5em;
+    padding: 0.3em 0;
+}
+
+/* Compliment Cards */
+.compliment-container .card-compliment {
+    align-items: center;
+    border-radius: 0.5em;
+    display: flex;
+    gap: 0.3em;
+    justify-content: center;
+    padding: 0.5em;
+
+    /* icon styling */
+    svg {
+        fill: #f8f12a;
+        stroke: var(--color-1);
+        height: 1.5em;
+        width: 1.5em;
+    }
+
+    span.special {
+        font-weight: 500;
+    }
+    
+    /* if there is a paragraph needed */
+    .compliment-text h3 {
+        font-weight: 900;
+        font-style: italic;
+        margin-block: 0.3em;
+    }
+
+    .compliment-text p {
+        margin-block: 0.2em;
+        opacity: 70%;
+    }
+}
+
 /* Food Text Description */
 .food-text-description {
+    > h2, h3 {
+        margin-block: 0.5em 0.2em;
+    }
+    
     > h3 {
         font-size: 1.4em;
-        margin-block: 0.5em 0.2em;
     }
 
     > p {
-        margin-block: 0 0.7em;
+        margin-block: 1em;
         opacity: 75%;
     }
 
     span.list-rating:nth-child(1) {
         margin-top: 0;
     }
+
+    span.list-rating:nth-child(2) {
+        margin-block: 0.8em;
+    }
 }
+
+/* FOCAL CARD CONTAINER */
+.pop-box-panel {
+    --pop-box-border-radius: 2em;
+    --pop-box-pad: 1em;
+
+    background-color: #ffe3e3;
+    border-radius: var(--pop-box-border-radius);
+    gap: 2em;
+    grid-template: 100% / 1fr 1.5fr;
+    padding: 1em;
+    
+    display: grid;
+    position: fixed;
+    top: 15vh;
+    bottom: 15vh;
+    left: 10vw;
+    right: 10vw;
+    z-index: 999999; /* always in front */
+
+    > img {
+        border-radius: calc(var(--pop-box-border-radius) - var(--pop-box-pad));
+        width: 100%;
+        height: 100%;
+    }
+
+    /* close button styling */
+    > button.close-btn {
+        align-items: center;
+        display: flex; /* keeps off the icon from slightly misaligned (slight shift upward from centre) */
+        justify-content: center;
+        padding: 0.2em;
+        position: absolute;
+        top: 1em;
+        right: 1em;
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    > button.close-btn img {
+        width: 1.2rem;
+        height: 1.2rem;
+    }
+
+    /* black semi-transparent overlay */
+}
+
+/* works only with presence of pop-box-panel */
+.overlay-drop {
+    position: fixed;
+    background-color: #0000006f;
+    /* captures the full view */
+    top: -100%;
+    bottom: -100%;
+    left: -100%;
+    right: -100%;
+    z-index: 99999; /* second after the .pop-box-panel */
+
+    &:not:has(.pop-box-panel) {
+        display: none;
+    }
+}
+
+body:has(.pop-box-panel) {
+    overflow-y: hidden;
+}
+
+/* Wrapping Containers */
+.pop-box-panel > .container-wraps {
+    /* Contents at the top while the button is at the bottom */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    h2 {
+        max-width: 13em;
+    }
+
+    button {
+        width: fit-content; /* avoid unnecessary full width of the parent */
+    }
+}
+
+.pop-box-panel > .container-wraps .food-text-description :is(h2, h3) {
+    text-transform: uppercase; /* ALL UPPERCASE */
+}
+
+/* .pop-box-container:has(.compliments) {
+
+} */
 
 /* ---------------------------------------------------------------- */
 
@@ -651,48 +812,8 @@ section#top-food-recommendation .recommended-box {
     }
 
     /* compliment elements */
-    > .compliments {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
-
-    > .compliments ul#compliment-container {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-    }
-
-    > .compliments .card-compliment {
-        background-color: #8d2005;
-        border-radius: calc(var(--box-recommendation-radius) - var(--box-recommendation-pad));
-        color: #ffffff;
-        display: flex;
-        gap: 1em;
-        margin-bottom: 0.5em;
-        padding: 0.5em;
-
-        &#cpt-2 {
-            background-color: #275f07;
-        }
-
-        svg {
-            fill: #fffa5e;
-            height: 2.25em;
-            stroke: var(--color-1);
-            width: 2.25em;
-        }
-
-        .compliment-text h3 {
-            margin-block: 0.3em;
-            font-weight: 900;
-            font-style: italic;
-        }
-
-        .compliment-text p {
-            margin-block: 0.2em;
-            opacity: 70%;
-        }
+    > .compliments .compliment-container {
+        display: block;
     }
 
     > .compliments #view-appraisals-btn {
@@ -933,12 +1054,8 @@ footer section.footer-bottom.flex {
         }
 
         /* compliment elements */
-        > .compliments {
-            display: block;
-        }
-
-        > .compliments ul#compliment-container .card-compliment {
-            width: 300px;
+        > .compliments ul.compliment-container .card-compliment {
+            justify-content: start;
         }
     }
 
