@@ -1,6 +1,7 @@
 // functions
 const makeUpCompliments = (id) => {
     switch (id) {
+        // three recommendations area:
         case "e-30489":
             return [
                 {
@@ -100,6 +101,30 @@ const makeUpCompliments = (id) => {
                     special: "Versatile",
                 }
             ];
+        // other reviews area:
+        case "l-409":
+            return [
+                {
+                    icon: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g id="SVGRepo_bgCarrier" stroke-width="2"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <path d="M12 20L4.3314 12.0474C3.47892 11.1633 3 9.96429 3 8.71405C3 6.11055 5.03517 4 7.54569 4C8.75128 4 9.90749 4.49666 10.76 5.38071L12 6.66667L13.24 5.38071C14.0925 4.49666 15.2487 4 16.4543 4C18.9648 4 21 6.11055 21 8.71405C21 9.96429 20.5211 11.1633 19.6686 12.0474L15.8343 16.0237" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </g>
+                            </svg>`,
+                    special: "1",
+                },
+                {
+                    icon: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g id="SVGRepo_bgCarrier" stroke-width="2"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <path d="M12 20L4.3314 12.0474C3.47892 11.1633 3 9.96429 3 8.71405C3 6.11055 5.03517 4 7.54569 4C8.75128 4 9.90749 4.49666 10.76 5.38071L12 6.66667L13.24 5.38071C14.0925 4.49666 15.2487 4 16.4543 4C18.9648 4 21 6.11055 21 8.71405C21 9.96429 20.5211 11.1633 19.6686 12.0474L15.8343 16.0237" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </g>
+                            </svg>`,
+                    special: "2",
+                }
+            ];
     }
 }
 
@@ -107,10 +132,18 @@ const makeUpCompliments = (id) => {
 const makeUpParagraph = (id) => {
     // an ID of a specific element to match with these followings:
     switch (id) {
+        // three recommendations area:
         case "e-30489":
             return `Raspberry pancake features a handy fresh morning session, non-ordinary regular pancake but with soft and fluffy texture in a twist of flavourful raspberries. These are becoming the highest priority for another exceptional yet delightful experience of every morning. Look at the bright pancakes, so gorgeous!`;
         case "e-64308":
-            return `paragraph`;
+            return `A toast with egg and lettuce is another great deal for a combined, quick classic combos for breakfast. Scrambled egg or fried egg with lettuce boosts up for your nutrients and healthiness—adding up of mayonnaise, mustard and seasonings can level up your flavour more!`;
+        case "e-10031":
+            return `Oatmeal with fruits is a healthy breakfast for your next morning session, whether you are up to nutritious, health-nourishing sweetness that delivers your desires in. Oatmeal with fruits are an another preferred breakfast for anyone for health-conscious, and versatile to serve delightfulness.`;
+
+        // other reviews area:
+        case "l-409":
+            return "paragraph 1";
+
     }
 }
 
@@ -132,7 +165,6 @@ const popBox = (img, rating, context, compliments) => {
     // overlay semi-transparent
     const overlayDrop = document.createElement("div");
     overlayDrop.classList.add("overlay-drop");
-    console.log(overlayDrop);
 
     // 2) compliment making procedures
     let numeralStamp = 0;
@@ -194,12 +226,10 @@ const popBox = (img, rating, context, compliments) => {
     document.querySelector("body").appendChild(popPanel);
 }
 
-
 // obtain informations for each of food cards
 document.querySelectorAll(".food-card").forEach((e) => {
     // get a 4th child element from this parent (MUST BE BUTTON)
     const viewBtn = e.children[3];
-    console.log(e.id);
 
     // img
     let foodImg = e.children[0];
@@ -218,12 +248,37 @@ document.querySelectorAll(".food-card").forEach((e) => {
     // verify (type such as div, button, h2, etc...)
     if (viewBtn.type === "button") {
         // add the eventListener for each of the btns
-        viewBtn.addEventListener("click", (e) => {
+        viewBtn.addEventListener("click", () => {
+            // img, heading, context
+            popBox(foodImg, rating, textDscp, foodCompliment, offsetY);
+        });
+    }
+});
+
+// unordered list version
+document.querySelectorAll("ul.food-rating-list li").forEach((li) => {
+    const viewBtn = li.children[1].children[1];
+
+    // img
+    let foodImg = li.children[0];
+    let rating = li.children[1].children[0].children[0];
+    let textDscp = {
+        heading: li.children[1].children[0].children[1],
+        par: document.createElement("p")
+    };
+
+    // slight change
+    textDscp.par.textContent = makeUpParagraph(li.id);
+
+    // make up compliments
+    const foodCompliment = makeUpCompliments(li.id);
+    
+    // verify (type such as div, button, h2, etc...)
+    if (viewBtn.type === "button") {
+        // add the eventListener for each of the btns
+        viewBtn.addEventListener("click", () => {
             // img, heading, context
             popBox(foodImg, rating, textDscp, foodCompliment);
         });
     }
-
-
-    // button
-})
+});
