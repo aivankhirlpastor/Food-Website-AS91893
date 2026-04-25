@@ -989,6 +989,13 @@ footer section.footer-bottom.flex {
         }
     }
 
+    /* TOP FOOD FAVOURITES THIS MORNING */
+    section.top-food-segment .top-food-categories {
+        font-size: clamp(0.5em, 2.5vw, 1em); /* font is based scaled for all phone dimensions until 480px */
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2vw;
+    }
+
     /* OUR SERVICE */
     section#services .work-aesthetic {
         row-gap: 2em;
@@ -1115,17 +1122,6 @@ footer section.footer-bottom.flex {
         }
     }
 
-    /* TOP FOOD FAVOURITES THIS MORNING */
-    section.top-food-segment .top-food-categories {
-        font-size: clamp(0.5em, 2.4vw, 1em); /* font is based scaled for all phone dimensions until 480px */
-        grid-template-columns: repeat(2, 1fr);
-        gap: 2vw;
-
-        .food-card {
-            height: auto; /* similar height of all cards in each row */
-        }
-    }
-
     /* BOTTOM LAYER */
     section.bottom-layer#newsletter-signup {
         display: block;
@@ -1195,14 +1191,20 @@ footer section.footer-bottom.flex {
         --header-pad-inline: 5%;
     }
 
+    /* all sections except the on-high-division, which is found at the first top of the page */
+    main > section:not(.on-high-division) {
+        margin-inline: 0;
+    }
+
     /* Unordered List of Compliments */
     .compliment-container {
         display: block;
     }
 
-    /* all sections except the on-high-division, which is found at the first top of the page */
-    section:not(.on-high-division) {
-        margin-inline: auto;
+    /* OTHER REVIEWS */
+    section#other-reviews ul li > img {
+        width: 28vw;
+        height: 28vw;
     }
 
     /* TOP FOOD FAVOURITES */
