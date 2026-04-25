@@ -64,6 +64,7 @@
 /* html tag */
 html {
     font-size: 1.125rem; /* from 16px multiplied by 1.125 is 18px */
+    scroll-behavior: smooth;
 }
 
 /* body tag */
