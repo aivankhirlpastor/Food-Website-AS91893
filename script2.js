@@ -250,7 +250,7 @@ document.querySelectorAll(".food-card").forEach((e) => {
         // add the eventListener for each of the btns
         viewBtn.addEventListener("click", () => {
             // img, heading, context
-            popBox(foodImg, rating, textDscp, foodCompliment, offsetY);
+            popBox(foodImg, rating, textDscp, foodCompliment);
         });
     }
 });
