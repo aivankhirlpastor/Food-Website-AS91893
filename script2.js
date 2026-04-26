@@ -198,7 +198,9 @@ const popBox = (img, rating, context, compliments) => {
     // 5) creating based-structure HTML
     popPanel.innerHTML += `
         <!-- (I) Food Image Content -->
-        <img src="${img.src}" alt="${img.alt}" class="fixed-asp">
+        <div class="img-wrapper">
+            <img src="${img.src}" alt="${img.alt}" class="fixed-asp">
+        </div>
         <!-- (II) Container Wraps -->
         <div class="container-wraps">
             <div class="food-text-description">
