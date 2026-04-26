@@ -537,6 +537,10 @@ section.food-cuisine .swiper .cuisine-food-categories {
     }
 }
 
+section.food-cuisine .swiper {
+    height: clamp(20em, 40vw, 28em);
+}
+
 /* OUR SERVICE */
 /* section#services {
 
