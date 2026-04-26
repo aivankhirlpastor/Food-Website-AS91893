@@ -4,7 +4,7 @@
 
 
 // Swipers
-const cuisineSwiper = new Swiper('#cuisine-swiper', {
+const cuisineSwiper = new Swiper('.cuisine-swiper', {
     direction: "horizontal",
     effect: "slide",
 
