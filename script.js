@@ -10,7 +10,7 @@ const cuisineSwiper = new Swiper('.cuisine-swiper', {
 
     slidesPerView: 3,
     spaceBetween: 50,
-    loop: true,
+    // loop: true,
     // navigation: {
     //   nextEl: ".swiper-button-next",
     //   prevEl: ".swiper-button-prev"
