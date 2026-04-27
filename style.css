@@ -539,6 +539,11 @@ section.food-cuisine .swiper {
     height: clamp(20em, 40vw, 28em);
 }
 
+/* FOOD CUISINES */
+section.food-cuisine p {
+    width: 70%;
+}
+
 /* OUR SERVICE */
 /* section#services {
 
@@ -997,6 +1002,12 @@ footer section.footer-bottom.flex {
         grid-template-columns: repeat(2, 1fr);
         gap: 2vw;
     }
+
+    /* FOOD CUISINES */
+    section.food-cuisine p {
+        width: auto;
+    }
+
 
     /* OUR SERVICE */
     section#services .work-aesthetic {
