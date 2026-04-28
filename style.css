@@ -49,6 +49,9 @@
     /* first top segment (.on-high-division) of the page */
     --top-section-padding: 2.5em;
 
+    /* contact container segment */
+    --contact-ctn-gap: 2em;
+
     /* footer property */
     --footer-bg: #251E00;
     --footer-txt-color: #FFFFFF;
@@ -169,6 +172,22 @@ button {
     }
 }
 
+/* input & textbox tag */
+input, textarea {
+    --input-transition-property: 0.2s ease;
+
+    background-color: #C2C2C2;
+    border-radius: 1em;
+    border: none;
+    font-size: 1rem;
+    outline: none;
+    padding: 0.5em 1em;
+
+    transition: border-color var(--input-transition-property),
+                background-color var(--input-transition-property),
+                box-shadow var(--input-transition-property);
+}
+
 .italicised {
     font-style: italic;
 }
@@ -201,7 +220,7 @@ span.list-rating {
 
 /* COMMONLY OBSERVED ELEMENTS */
 
-/*  */
+/* text description */
 .text-container {
     display: flex;
     flex-direction: column;
@@ -564,7 +583,6 @@ section#services .work-aesthetic {
 
         > svg {
             fill: #ff5500;
-            /* padding: 0.2em; */
             stroke: var(--color-1);
             width: 3em;
             height: auto;
@@ -729,7 +747,6 @@ section.bottom-layer#newsletter-signup {
         section.form-block > input {
             border-radius: 2em;
             border: solid 3px var(--color-5); /* [] */
-            font-size: 1em;
             padding: 0.3em 0.5em;
         }
     }
@@ -863,6 +880,147 @@ section#other-reviews ul li {
     }
 }
 
+/* ----------------- CONTACT PAGE ----------------- */
+
+/* FORM CONTAINER + CONTACT SIDE INFO */
+section#form .contact-container {
+    /* display: flex; */
+    display: grid; /* 1/3 rule */
+    grid-template: repeat(3, auto) / repeat(3, 1fr);
+
+    gap: var(--contact-ctn-gap);
+}
+
+section#form .contact-container form {
+    --input-border-extent: 2px;
+
+    display: grid; /* grabbing in grid layouts */
+    column-gap: var(--contact-ctn-gap);
+    grid-template-columns: repeat(2, 1fr);
+    grid-area: 1 / 1 / 4 / span 2;
+
+    /* Form Blocks At Each Inputs */
+    > .form-block {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        /* block types: email, phone number, full name, message */
+        &.ftg-1 {
+            grid-area: 1 / 1 / span 1 / span 1;
+        }
+        &.ftg-2 {
+            grid-area: 1 / 2 / span 1 / span 1;
+        }
+        &.ftg-3 {
+            grid-area: 2 / 1 / span 1 / span 2;
+        }
+        &.ftg-4 {
+            grid-area: 3 / 1 / span 1 / span 2;
+        }
+    }
+
+    /* label styling */
+    > .form-block label {
+        opacity: 80%;
+        margin-block: 0.5em;
+    }
+
+    > .form-block :is(input, textarea) {
+        /* obvious fit inside the form-block */
+        background-color: transparent;
+        border: var(--input-border-extent) solid #00000044;
+        width: calc(100% - var(--contact-ctn-gap) - (var(--input-border-extent) * 2));
+
+        /* original hover state */
+        &:not(:focus):hover {
+            border-color: #FF573399;
+            background-color: #86868609;
+        }
+
+        &:valid {
+            border-color: #6A994E;
+            background-color: #6A994E10;
+
+            &:not(:focus):hover {
+                border-color: #b8ce47;
+                background-color: #cbcf0010;
+            }
+        }
+
+        /* focus state */
+        &:focus {
+            border-color: #000000;
+            background-color: #57575721;
+
+            &:valid {
+                border-color: #46c000;
+                background-color: #5e9f3924;
+            }
+        }
+    }
+
+    > .form-block textarea {
+        resize: vertical;
+    }
+}
+
+section#form .contact-container .contact-info-side {
+    background-color: var(--color-4);
+    border-radius: 1em;
+    grid-area: 1 / 3 / 4 / 4;
+    padding: 1em;
+    
+    :has(svg) {
+        display: flex;
+    }
+
+    /* contact block info */
+    .contact-block {
+        margin-block: 1em;
+
+        &:first-child {
+            margin-block-start: 0;
+        }
+        &:last-child {
+            margin-block-end: 0;
+        }
+    }
+
+    .contact-block > svg {
+        stroke: #ff5500;
+        fill: var(--color-1);
+        width: 2em;
+        height: 2em;
+        margin-right: 0.5em;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    }
+
+    .contact-block .contact-context > h3 {
+        font-size: 1em;
+        font-weight: 400;
+        opacity: 50%;
+    }
+
+    .contact-block .contact-context > p {
+        /* color: var(--color-2); */
+        font-size: 1em;
+        font-weight: 500;
+    }
+
+    .contact-block .contact-context > :is(h3, p) {
+        margin-block: 0;
+    }
+}
+
+/* Google Maps Frame */
+section#maps iframe {
+    border-radius: 1.2em;
+    width: 100%;
+    height: 400px;
+}
 
 /* FOOTER */
 
