@@ -925,10 +925,12 @@ section#form .contact-container form {
     }
 
     > .form-block :is(input, textarea) {
-        /* obvious fit inside the form-block */
         background-color: transparent;
         border: var(--input-border-extent) solid #00000044;
+        /* obvious fit inside the form-block */
         width: calc(100% - var(--contact-ctn-gap) - (var(--input-border-extent) * 2));
+
+        /* input style: accessibility hints on focus, hover and valid */
 
         /* original hover state */
         &:not(:focus):hover {
@@ -936,6 +938,7 @@ section#form .contact-container form {
             background-color: #86868609;
         }
 
+        /* valid state: validation */
         &:valid {
             border-color: #6A994E;
             background-color: #6A994E10;
@@ -958,8 +961,11 @@ section#form .contact-container form {
         }
     }
 
+    /* the text area: message */
     > .form-block textarea {
-        resize: vertical;
+        resize: vertical; /* resizeable height */
+        height: 150px; /* initial */
+        max-height: 320px; /* restricted maximum height, no beyond than 400px */
     }
 }
 
@@ -975,7 +981,7 @@ section#form .contact-container .contact-info-side {
 
     /* contact block info */
     .contact-block {
-        margin-block: 1em;
+        margin-block: 1.8em;
 
         &:first-child {
             margin-block-start: 0;
