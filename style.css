@@ -6,11 +6,9 @@
     /* color palette FOR breakfast food website */
     --color-1: #FFCC00;
     --color-2: #FF5733;
-    --color-3: #6A994E;
+    --color-3: #C02300;
     --color-4: #F7E7CE;
     --color-5: #000000;
-
-    --hover-main-color: #C02300;
 
     /* font property */
     --font-body: "Montserrat", Arial, Helvetica, sans-serif;
@@ -21,7 +19,7 @@
     --btn-text-idle-color: #000000;
     --btn-text-emphasis-color: #FFFFFF;
 
-    --emphasis-btn-bg: #C02300;
+    --emphasis-btn-bg: var(--color-3);
     --emphasis-btn-border-bg: var(--emphasis-btn-bg);
     --main-btn-bg: #CCCCCC;
     --main-btn-border-bg: #CCCCCC;
