@@ -172,6 +172,8 @@ button {
 
 /* input & textbox tag */
 input, textarea {
+    --input-border-extent: 2px;
+    --input-pad-inline: 1em;
     --input-transition-property: 0.2s ease;
 
     background-color: #C2C2C2;
@@ -179,7 +181,7 @@ input, textarea {
     border: none;
     font-size: 1rem;
     outline: none;
-    padding: 0.5em 1em;
+    padding: 0.5em var(--input-pad-inline);
 
     transition: border-color var(--input-transition-property),
                 background-color var(--input-transition-property),
@@ -882,7 +884,6 @@ section#other-reviews ul li {
 
 /* FORM CONTAINER + CONTACT SIDE INFO */
 section#form .contact-container {
-    /* display: flex; */
     display: grid; /* 1/3 rule */
     grid-template: repeat(3, auto) / repeat(3, 1fr);
 
@@ -890,12 +891,10 @@ section#form .contact-container {
 }
 
 section#form .contact-container form {
-    --input-border-extent: 2px;
-
     display: grid; /* grabbing in grid layouts */
     column-gap: var(--contact-ctn-gap);
     grid-template-columns: repeat(2, 1fr);
-    grid-area: 1 / 1 / 4 / span 2;
+    grid-area: 1 / 1 / 4 / span 2; /* in placement prior to parent associated grid template, not this element */
 
     /* Form Blocks At Each Inputs */
     > .form-block {
@@ -922,6 +921,13 @@ section#form .contact-container form {
     > .form-block label {
         opacity: 80%;
         margin-block: 0.5em;
+    }
+
+    /* required symbol */
+    > .form-block:has(:is(input, textarea):required) label::after {
+        content: "*";
+        color: red;
+        margin-left: 0.5em;
     }
 
     > .form-block :is(input, textarea) {
@@ -967,8 +973,15 @@ section#form .contact-container form {
         height: 150px; /* initial */
         max-height: 320px; /* restricted maximum height, no beyond than 400px */
     }
+
+    /* button */
+    > button[type="submit"] {
+        margin-block: 1em;
+        width: fit-content;
+    }
 }
 
+/* Contact Infos: Email, Phone Number, Physical Address */
 section#form .contact-container .contact-info-side {
     background-color: var(--color-4);
     border-radius: 1em;
@@ -1255,6 +1268,12 @@ footer section.footer-bottom.flex {
         }
     }
 
+    /* FORM CONTAINER + CONTACT SIDE INFO */
+    section#form .contact-container {
+        display: flex;
+        flex-direction: column; /* not 1/3 rule */
+    }
+
     /* footer */
     footer section.footer-top.flex {
         flex-direction: column;
@@ -1314,7 +1333,6 @@ footer section.footer-bottom.flex {
     }
 
     /* TOP FOOD RECOMMENDATION */
-
     section#top-food-recommendation .recommended-box {
         display: flex;
         flex-direction: column;
@@ -1423,6 +1441,18 @@ footer section.footer-bottom.flex {
         }
         > img.img-4 {
             grid-area: 3 / 1 / span 1 / span 2;
+        }
+    }
+
+    /* FORM CONTAINER + CONTACT SIDE INFO */
+    section#form .contact-container form {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        
+        > .form-block :is(input, textarea) {
+            /* not the completely full width of viewpoint width on the window */
+            width: calc(100% - (var(--input-border-extent) * 2) - (var(--input-pad-inline) * 2));
         }
     }
 }
