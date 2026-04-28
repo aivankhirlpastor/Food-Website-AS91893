@@ -30,27 +30,29 @@
         <!-- Form Section -->
         <section id="form">
             <h2>GET IN TOUCH WITH US</h2>
+            <p>Let's connect together! Sned us the message by filling up the form below—we would love to hear from you.</p>
 
             <div class="contact-container">
                 <!-- Form Container -->
                 <form>
                     <section class="form-block ftg-1">
                         <label for="email">Email</label>
-                        <input type="email" name="email" id="email" required>
+                        <input type="email" name="email" id="email" aria-required="true" required>
                     </section>
                     <section class="form-block ftg-2">
                         <label for="phone-number">Phone Number</label>
-                        <input type="tel" name="phone-number" id="phone-number" required>
+                        <input type="tel" name="phone-number" id="phone-number" aria-required="true" required>
                     </section>
                     <section class="form-block ftg-3">
                         <label for="full-name">Full Name</label>
-                        <input type="text" name="full-name" id="full-name" required>
+                        <input type="text" name="full-name" id="full-name" aria-required="true" required>
                     </section>
                     <section class="form-block ftg-4">
                         <label for="message">Message</label>
                         <!-- <input type="g" name="message" id="message" required> -->
-                        <textarea name="message" id="message"></textarea>
+                        <textarea name="message" id="message" aria-required="true" required></textarea>
                     </section>
+                    <button type="submit" class="emphasis-btn">Send Message</button>
                 </form>
                 <!-- Contact Info Sided -->
                 <div class="contact-info-side">
@@ -84,7 +86,7 @@
                         </svg>
                         <div class="contact-context">
                             <h3>Phone Number</h3>
-                            <p>(488) 291-4560</p>
+                            <p>350-470-0000</p>
                         </div>
                     </div>
                     <div class="contact-block" id="headquarter">
