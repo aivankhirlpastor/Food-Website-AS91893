@@ -220,6 +220,11 @@ span.list-rating {
 
 /* COMMONLY OBSERVED ELEMENTS */
 
+/* paragraph in 7/10 width of parent */
+section.food-cuisine p, p.seventh-sized {
+    width: 70%;
+}
+
 /* text description */
 .text-container {
     display: flex;
@@ -558,16 +563,7 @@ section.food-cuisine .swiper {
     height: clamp(20em, 40vw, 28em);
 }
 
-/* FOOD CUISINES */
-section.food-cuisine p {
-    width: 70%;
-}
-
 /* OUR SERVICE */
-/* section#services {
-
-} */
-
 /* grid styling segment */
 section#services .work-aesthetic {
     display: grid;
@@ -1125,6 +1121,11 @@ footer section.footer-bottom.flex {
 
 /* media queries for device extent less than 920px */
 @media only screen and (max-width: 970px) {
+    /* paragraph in 7/10 width of parent */
+    section.food-cuisine p, p.seventh-sized {
+        width: 70%;
+    }
+
     /* PANEL */
     .pop-box-panel {
         grid-template: 40% 60% / 1fr;
@@ -1177,12 +1178,6 @@ footer section.footer-bottom.flex {
         grid-template-columns: repeat(2, 1fr);
         gap: 2vw;
     }
-
-    /* FOOD CUISINES */
-    section.food-cuisine p {
-        width: auto;
-    }
-
 
     /* OUR SERVICE */
     section#services .work-aesthetic {
