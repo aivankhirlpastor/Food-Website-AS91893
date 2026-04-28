@@ -981,7 +981,7 @@ section#form .contact-container form {
     }
 }
 
-/* Contact Infos: Email, Phone Number, Physical Address */
+/* Contact Info: Email, Phone Number, Physical Address */
 section#form .contact-container .contact-info-side {
     background-color: var(--color-4);
     border-radius: 1em;
