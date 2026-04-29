@@ -1379,6 +1379,7 @@ footer section.footer-bottom.flex {
         pointer-events: none; /* make the containers unclickable */
     }
 
+    /* opposition property of not having .trnst-guide */
     header nav:not(.trnst-guide) {        
         display: none;
 
@@ -1402,6 +1403,39 @@ footer section.footer-bottom.flex {
     header :is(#open-hamburger-menu, #close-btn) {
         display: block;
         width: fit-content;
+    }
+
+    header #open-hamburger-menu {
+        border: none;
+        padding: 0.4em;
+        border-radius: 0.4em;
+
+        /* transition root property */
+        background-color: transparent;
+        transition: background-color var(--header-transition-duration);
+
+        /* icon */
+        > svg {
+            width: 1.5em;
+            height: 1.5em;
+            display: flex; /* again, to prevent misalignment */
+
+            /* initial property for transition */
+            fill: var(--color-5);
+            transition: fill var(--header-transition-duration);
+        }
+
+        &:hover {
+            background-color: #ffeebb77;
+        }
+    }
+    /* active state */
+    header:has(nav.disclose) #open-hamburger-menu {
+        background-color: var(--color-3);
+
+        > svg {
+            fill: #FFFFFF;
+        }
     }
 
     /* HERO SECTION */
