@@ -40,6 +40,14 @@
     --header-pad-inline: 2em;
     --header-title-extent: 1.35em;
 
+    /* header hamburger elevation property */
+    --header-blur-extent: blur(10px);
+    --header-shadow-spread: 8px;
+    --header-visible-bg: #FBFFCA99;
+
+    --header-nav-bg: var(--color-1);
+    --header-nav-shadow-spread: 8px;
+
     /* main tag property */
     --main-element-top-space: calc((var(--header-pad-block) * 2) + var(--header-height));
     --main-whitespace-inline: var(--header-pad-inline);
@@ -443,13 +451,8 @@ header nav.navigational-links {
     }
 }
 
-header button#search {
-    --srch-btn-extent: 2.25em;
-
-    background-color: #000000;
-    border-radius: 0.4em;
-    height: var(--srch-btn-extent);
-    width: var(--srch-btn-extent);
+header :is(#open-hamburger-menu, #close-btn) {
+    display: none;
 }
 
 /* Hero Section Styling + Segment Page Overview */
@@ -1284,8 +1287,121 @@ footer section.footer-bottom.flex {
 /* media queries for device extent less than 780px */
 @media only screen and (max-width: 780px) {
     /* HEADER */
-    header nav {
+    header {
+        /* header in grids */
+        --header-row-gap: 0.75em;
+        --header-transition-duration: 0.2s ease;
+
+        /* child translate y */
+        --header-child-translate-y: translateY(-75px);
+
+        background-color: transparent;
+        display: grid;
+        grid-template: repeat(3, auto) / repeat(2, 1fr);
+        row-gap: var(--header-row-gap);
+        transition: background-color var(--header-transition-duration),
+                    backdrop-filter var(--header-transition-duration),
+                    box-shadow var(--header-transition-duration);
+
+        /* background glass effect roots: important for transition */
+        backdrop-filter: none;
+        box-shadow: none;
+
+        /* grid areas */
+        > h1 {
+            grid-area: 1 / 1 / span 1 / span 1;
+            justify-self: start;
+        }
+
+        > button#open-hamburger-menu {
+            grid-area: 1 / 2 / span 1 / span 1;
+            justify-self: end;
+        }
+
+        > nav {
+            grid-area: 2 / 1 / span 1 / span 2;
+        }
+
+        /* close button */
+        > button#close-btn {
+            grid-area: 3 / 1 / span 1 / span 2;
+            justify-self: center;
+            margin-bottom: calc(var(--header-row-gap) - var(--header-pad-block)); /* balanced margin space */
+
+            /* transition root property */
+            opacity: 0%;
+            transition: opacity var(--header-transition-duration);
+
+        }
+    }
+
+    /* layout of hamburger menu */
+    header nav.navigational-links {
+        background-color: var(--header-nav-bg);
+        border-radius: 1em;
+        box-shadow: 0px 4px var(--header-nav-shadow-spread) #000000bb; /* shadow box */
+        
+        /* root transition property */
+        opacity: 0%;
+        transform: var(--header-child-translate-y);
+
+        transition: opacity var(--header-transition-duration),
+                    transform var(--header-transition-duration);
+        
+        ul {
+            padding-block: 0.5em;
+        }
+
+        ul li {
+            display: block;
+            text-align: center;
+        }
+    }
+
+    /* enables this style if the header contains nav with a class of "disclose" */
+    header:has(nav.disclose) {
+        background-color: var(--header-visible-bg);
+        
+        /* background glass effect */
+        backdrop-filter: var(--header-blur-extent);
+        box-shadow: 0px 5px var(--header-shadow-spread) #00000066;
+    }
+    
+    /* This prevents immediate change to height in closing menu while transition animation
+       until it does not have a class of .trnst-guide controlled by JavaScript. */
+    header:has(nav.trnst-guide) {
+        height: auto;
+    }
+
+    /* opposition property */
+    header nav:not(.disclose) {
+        cursor: default;
+        pointer-events: none; /* make the containers unclickable */
+    }
+
+    header nav:not(.trnst-guide) {        
         display: none;
+
+        /*  */
+        & ~ button#close-btn {
+            display: none;
+        }
+    }
+
+    /* relative transition property */
+    header nav.disclose {
+        opacity: 100%;
+        transform: none;
+
+        & ~ button#close-btn {
+            opacity: 100%;
+        }
+    }
+
+    /* button essentials */
+    header :is(#open-hamburger-menu, #close-btn) {
+        display: block;
+        width: fit-content;
     }
 
     /* HERO SECTION */
