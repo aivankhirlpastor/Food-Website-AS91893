@@ -1324,7 +1324,7 @@ footer section.footer-bottom.flex {
         > button#close-btn {
             grid-area: 3 / 1 / span 1 / span 2;
             justify-self: center;
-            margin-bottom: calc(var(--header-row-gap) - var(--header-pad-block)); /* balanced margin space */
+            margin-block: 0.3em calc((var(--header-row-gap) + 0.3em) - var(--header-pad-block)); /* balanced margin space */
 
             /* transition root property */
             opacity: 0%;
@@ -1341,7 +1341,7 @@ footer section.footer-bottom.flex {
         
         /* root transition property */
         opacity: 0%;
-        transform: var(--header-child-translate-y);
+        transform: var(--header-child-translate-y) scale(0.9);
 
         transition: opacity var(--header-transition-duration),
                     transform var(--header-transition-duration);
@@ -1353,6 +1353,12 @@ footer section.footer-bottom.flex {
         ul li {
             display: block;
             text-align: center;
+        }
+
+        /* <a> links to full width */
+        ul li > a {
+            display: block;
+            width: auto;
         }
     }
 
