@@ -1124,7 +1124,7 @@ footer section.footer-bottom.flex {
 @media only screen and (max-width: 970px) {
     /* paragraph in 7/10 width of parent */
     section.food-cuisine p, p.seventh-sized {
-        width: 70%;
+        width: auto;
     }
 
     /* PANEL */
@@ -1178,6 +1178,15 @@ footer section.footer-bottom.flex {
         font-size: clamp(0.5em, 2.5vw, 1em); /* font is based scaled for all phone dimensions until 480px */
         grid-template-columns: repeat(2, 1fr);
         gap: 2vw;
+    }
+
+    /* CUISINE FOOD SWIPER */
+    section.food-cuisine .swiper {
+        height: 27em; /* revoke height restriction and horizontal cuts */
+    }
+
+    section.food-cuisine .swiper .cuisine-food-categories {
+        font-size: 1em;
     }
 
     /* OUR SERVICE */
