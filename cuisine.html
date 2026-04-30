@@ -405,12 +405,30 @@
     <script src="script.js"></script>
     <script>
         // Swipers
-        const cuisineSwiper = new Swiper('.cuisine-swiper', {
+        var cuisineSwiper = new Swiper('.cuisine-swiper', {
             direction: "horizontal",
             effect: "slide",
+            
+            // breakpoints (responsiveness)
+            breakpoints: {
+                // >= 971
+                971: {
+                    slidesPerView: 3,
+                    spaceBetween: 40
+                },
 
-            slidesPerView: 3,
-            spaceBetween: 50,
+                //  >= 581
+                581: {
+                    slidesPerView: 2,
+                    spaceBetween: 40
+                },
+
+                //  >= 40
+                40: {
+                    slidesPerView: 1,
+                    spaceBetween: 40
+                }
+            }
         });
     </script>
 </body>
